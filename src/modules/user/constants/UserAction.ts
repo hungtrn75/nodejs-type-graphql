@@ -1,0 +1,2 @@
+export const FORGOT_PASSWORD = "FORGOT_PASSWORD";
+export const CONFIRM_EMAIL = "CONFIRM_EMAIL";

@@ -6,23 +6,14 @@ import { createConnection } from "typeorm";
 import session from "express-session";
 import cors from "cors";
 import connectRedis from "connect-redis";
-
-import { RegisterResolvers } from "./modules/user/Register";
 import { redis } from "./redis";
-import { LoginResolvers } from "./modules/user/Login";
-import { MeResolvers } from "./modules/user/Me";
-import { ConfirmUserResolver } from "./modules/user/confirmUser";
+import dotenv from "dotenv";
 
 const main = async () => {
   await createConnection();
-
+  dotenv.config();
   const schema = await buildSchema({
-    resolvers: [
-      RegisterResolvers,
-      LoginResolvers,
-      MeResolvers,
-      ConfirmUserResolver
-    ],
+    resolvers: [__dirname + "/modules/**/*.ts"],
     authChecker: ({ context: { req } }) => {
       return !!req.session.userId;
     }
@@ -35,6 +26,7 @@ const main = async () => {
   });
 
   const app = express();
+  const PORT = process.env.PORT_SERVER || 4000;
   const RedisStore = connectRedis(session);
 
   app.use(
@@ -61,9 +53,11 @@ const main = async () => {
     })
   );
 
-  apolloServer.applyMiddleware({ app });
-  app.listen(4000, () => {
-    console.log("Server started on http://localhost:4000/graphql");
+  apolloServer.applyMiddleware({ app, path: "/graphql" });
+  app.listen(PORT, () => {
+    console.log(
+      `🚀 Server ready at http://localhost:${PORT}${apolloServer.graphqlPath}`
+    );
   });
 };
 

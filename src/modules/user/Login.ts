@@ -5,7 +5,7 @@ import { MyContext } from "src/types/MyContext";
 
 @Resolver()
 export class LoginResolvers {
-  @Mutation(() => User)
+  @Mutation(() => User, { nullable: true })
   async login(
     @Arg("email") email: string,
     @Arg("password") password: string,
