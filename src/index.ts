@@ -11,12 +11,21 @@ import { RegisterResolvers } from "./modules/user/Register";
 import { redis } from "./redis";
 import { LoginResolvers } from "./modules/user/Login";
 import { MeResolvers } from "./modules/user/Me";
+import { ConfirmUserResolver } from "./modules/user/confirmUser";
 
 const main = async () => {
   await createConnection();
 
   const schema = await buildSchema({
-    resolvers: [RegisterResolvers, LoginResolvers, MeResolvers]
+    resolvers: [
+      RegisterResolvers,
+      LoginResolvers,
+      MeResolvers,
+      ConfirmUserResolver
+    ],
+    authChecker: ({ context: { req } }) => {
+      return !!req.session.userId;
+    }
   });
 
   const apolloServer = new ApolloServer({

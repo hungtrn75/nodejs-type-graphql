@@ -1,10 +1,15 @@
-import { Resolver, Query, Mutation, Arg } from "type-graphql";
+import { Resolver, Query, Mutation, Arg, UseMiddleware } from "type-graphql";
 import bcrypt from "bcryptjs";
 import { User } from "../../entity/User";
 import { RegisterInput } from "./register/RegisterInput";
+import { isAuth } from "../middleware/isAuth";
+import { logger } from "../middleware/logger";
+import { sendEmail } from "../../utils/sendEmail";
+import { createConfirmationUrl } from "../../utils/createConfirmationUrl";
 
 @Resolver()
 export class RegisterResolvers {
+  @UseMiddleware(isAuth, logger)
   @Query(() => String)
   async hello() {
     return "Hello World!";
@@ -25,6 +30,9 @@ export class RegisterResolvers {
       email,
       password: hashedPassword
     }).save();
+
+    await sendEmail(email, await createConfirmationUrl(newUser.id));
+
     return newUser;
   }
 }
