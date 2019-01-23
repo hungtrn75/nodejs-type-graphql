@@ -4,7 +4,7 @@ import { User } from "../../entity/User";
 import { MyContext } from "src/types/MyContext";
 
 @Resolver()
-export class LoginResolvers {
+export class LoginResolver {
   @Mutation(() => User, { nullable: true })
   async login(
     @Arg("email") email: string,

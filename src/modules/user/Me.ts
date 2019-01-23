@@ -3,7 +3,7 @@ import { User } from "../../entity/User";
 import { MyContext } from "src/types/MyContext";
 
 @Resolver()
-export class MeResolvers {
+export class MeResolver {
   @Query(() => User, { nullable: true })
   async me(@Ctx() ctx: MyContext): Promise<User | null | undefined> {
     const user = await User.findOne(ctx.req.session!.userId);

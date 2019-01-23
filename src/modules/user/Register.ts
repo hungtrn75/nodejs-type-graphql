@@ -9,7 +9,7 @@ import { createUserUrl } from "./utils/createUserUrl";
 import { CONFIRM_EMAIL } from "./constants/UserAction";
 
 @Resolver()
-export class RegisterResolvers {
+export class RegisterResolver {
   @UseMiddleware(isAuth, logger)
   @Query(() => String)
   async hello() {
