@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D jest
+  C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D @types/dataloader
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Admin\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\nodejs;C:\Program Files\Git\cmd;D:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\PostgreSQL\10\bin;D:\xampp\apache\bin;C:\ProgramData\chocolatey\bin;C:\Users\Admin\Anaconda3;C:\Users\Admin\Anaconda3\Scripts;C:\Python27;C:\Python27\Scripts;E:\Program Files\Matlab\runtime\win64;E:\Program Files\Matlab\bin;C:\ffmpeg\bin;D:\xampp\php;C:\ProgramData\ComposerSetup\bin;D:\nginx;C:\OpenSSL-Win64\bin;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Java\jdk1.8.0_191\bin;%ANDROID_HOME%;C:\Users\Admin\AppData\Local\Android\Sdk\platform-tools;C:\Users\Admin\Anaconda3;C:\Users\Admin\Anaconda3\Library\mingw-w64\bin;C:\Users\Admin\Anaconda3\Library\usr\bin;C:\Users\Admin\Anaconda3\Library\bin;C:\Users\Admin\Anaconda3\Scripts;C:\Python27\Scripts;C:\Python27;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\AppData\Roaming\npm;C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Program Files\JetBrains\PhpStorm 2018.2.1\bin;C:\Users\Admin\AppData\Local\now-cli;C:\Program Files\heroku\bin;C:\Program Files\PostgreSQL\10\bin;C:\gsutil;D:\xampp\apache\bin;C:\ffmpeg\bin;C:\Users\Admin\AppData\Roaming\Composer\vendor\bin;D:\nginx;C:\OpenSSL-Win64\bin;D:\netcat
@@ -14,7 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: UNKNOWN: unknown error, scandir 'C:\Users\Admin\AppData\Local\Yarn\Cache\v4\npm-watch-0.18.0-28095476c6df7c90c963138990c0a5423eb4b986\node_modules\watch'
+  Error: https://registry.yarnpkg.com/@types%2fdataloader: Not found
+      at Request.params.callback [as _callback] (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66255:18)
+      at Request.self.callback (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129397:22)
+      at emitTwo (events.js:126:13)
+      at Request.emit (events.js:214:7)
+      at Request.<anonymous> (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:130369:10)
+      at emitOne (events.js:116:13)
+      at Request.emit (events.js:211:7)
+      at IncomingMessage.<anonymous> (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:130291:12)
+      at Object.onceWrapper (events.js:313:30)
+      at emitNone (events.js:111:20)
 
 npm manifest: 
   {
@@ -28,6 +38,7 @@ npm manifest:
       "class-validator": "^0.9.1",
       "connect-redis": "^3.4.0",
       "cors": "^2.8.5",
+      "dataloader": "^1.4.0",
       "dotenv": "^6.2.0",
       "express": "^4.16.4",
       "express-session": "^1.15.6",
@@ -1041,6 +1052,11 @@ Lockfile:
     integrity sha1-mI3zP+qxke95mmE2nddsF635V+o=
     dependencies:
       array-find-index "^1.0.1"
+  
+  dataloader@^1.4.0:
+    version "1.4.0"
+    resolved "https://registry.yarnpkg.com/dataloader/-/dataloader-1.4.0.tgz#bca11d867f5d3f1b9ed9f737bd15970c65dff5c8"
+    integrity sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==
   
   dateformat@~1.0.4-1.2.3:
     version "1.0.12"

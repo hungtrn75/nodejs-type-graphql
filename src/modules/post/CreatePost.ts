@@ -6,6 +6,15 @@ import { InputType, Field } from "type-graphql";
 class ProductInput {
   @Field()
   name: string;
+
+  @Field()
+  title: string;
+
+  @Field()
+  description: string;
+
+  @Field()
+  body: string;
 }
 
 export const CreatePostResolver = createResolver(

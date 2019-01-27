@@ -8,7 +8,10 @@ import cors from "cors";
 import connectRedis from "connect-redis";
 import { redis } from "./redis";
 import dotenv from "dotenv";
+import { createAuthorsLoader } from "./utils/authorsLoader";
+import { createBooksLoader } from "./utils/booksLoader";
 import { createSchema } from "./utils/createSchema";
+import { createCommentsLoader } from "./utils/commentsLoader";
 
 const main = async () => {
   await createConnection();
@@ -18,7 +21,13 @@ const main = async () => {
   const apolloServer = new ApolloServer({
     schema,
     formatError: formatArgumentValidationError,
-    context: ({ req, res }: any) => ({ req, res })
+    context: ({ req, res }: any) => ({
+      req,
+      res,
+      authorsLoader: createAuthorsLoader(),
+      booksLoader: createBooksLoader(),
+      commentsLoader: createCommentsLoader()
+    })
   });
 
   const app = express();
