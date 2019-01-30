@@ -1,17 +1,17 @@
-import "reflect-metadata";
 import { ApolloServer } from "apollo-server-express";
+import connectRedis from "connect-redis";
+import cors from "cors";
+import dotenv from "dotenv";
 import express from "express";
+import session from "express-session";
+import "reflect-metadata";
 import { formatArgumentValidationError } from "type-graphql";
 import { createConnection } from "typeorm";
-import session from "express-session";
-import cors from "cors";
-import connectRedis from "connect-redis";
 import { redis } from "./redis";
-import dotenv from "dotenv";
 import { createAuthorsLoader } from "./utils/authorsLoader";
 import { createBooksLoader } from "./utils/booksLoader";
-import { createSchema } from "./utils/createSchema";
 import { createCommentsLoader } from "./utils/commentsLoader";
+import { createSchema } from "./utils/createSchema";
 
 const main = async () => {
   await createConnection();
@@ -58,7 +58,7 @@ const main = async () => {
     })
   );
 
-  apolloServer.applyMiddleware({ app, path: "/graphql" });
+  apolloServer.applyMiddleware({ app, cors: false });
   app.listen(PORT, () => {
     console.log(
       `🚀 Server ready at http://localhost:${PORT}${apolloServer.graphqlPath}`
