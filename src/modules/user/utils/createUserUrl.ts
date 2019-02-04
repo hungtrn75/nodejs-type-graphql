@@ -7,10 +7,10 @@ export const createUserUrl = async (userId: number, type: string) => {
   await redis.set(type + token, userId, "ex", 60 * 60 * 24); //1day
   switch (type) {
     case types.CONFIRM_EMAIL:
-      return `http://localhost:3000/user/confirm/${token}`;
+      return `http://localhost:3000/auth/verify-email/${token}`;
     case types.FORGOT_PASSWORD:
-      return `http://localhost:3000/user/reset/${token}`;
+      return `http://localhost:3000/auth/reset/${token}`;
     default:
-      return `http://localhost:3000/user/confirm/${token}`;
+      return `http://localhost:3000/auth/verify-email/${token}`;
   }
 };

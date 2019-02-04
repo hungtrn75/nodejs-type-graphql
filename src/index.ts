@@ -14,7 +14,11 @@ import { createCommentsLoader } from "./utils/commentsLoader";
 import { createSchema } from "./utils/createSchema";
 
 const main = async () => {
-  await createConnection();
+  try {
+    await createConnection();
+  } catch (error) {
+    console.log(error);
+  }
   dotenv.config();
   const schema = await createSchema();
 

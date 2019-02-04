@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D @types/dataloader
+  C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D @types/apollo-errors
 
 PATH: 
-  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Admin\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\nodejs;C:\Program Files\Git\cmd;D:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\PostgreSQL\10\bin;D:\xampp\apache\bin;C:\ProgramData\chocolatey\bin;C:\Users\Admin\Anaconda3;C:\Users\Admin\Anaconda3\Scripts;C:\Python27;C:\Python27\Scripts;E:\Program Files\Matlab\runtime\win64;E:\Program Files\Matlab\bin;C:\ffmpeg\bin;D:\xampp\php;C:\ProgramData\ComposerSetup\bin;D:\nginx;C:\OpenSSL-Win64\bin;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Java\jdk1.8.0_191\bin;%ANDROID_HOME%;C:\Users\Admin\AppData\Local\Android\Sdk\platform-tools;C:\Users\Admin\Anaconda3;C:\Users\Admin\Anaconda3\Library\mingw-w64\bin;C:\Users\Admin\Anaconda3\Library\usr\bin;C:\Users\Admin\Anaconda3\Library\bin;C:\Users\Admin\Anaconda3\Scripts;C:\Python27\Scripts;C:\Python27;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\AppData\Roaming\npm;C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Program Files\JetBrains\PhpStorm 2018.2.1\bin;C:\Users\Admin\AppData\Local\now-cli;C:\Program Files\heroku\bin;C:\Program Files\PostgreSQL\10\bin;C:\gsutil;D:\xampp\apache\bin;C:\ffmpeg\bin;C:\Users\Admin\AppData\Roaming\Composer\vendor\bin;D:\nginx;C:\OpenSSL-Win64\bin;D:\netcat
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;D:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\PostgreSQL\10\bin;D:\xampp\apache\bin;C:\ProgramData\chocolatey\bin;C:\Users\Admin\Anaconda3;C:\Users\Admin\Anaconda3\Scripts;C:\Python27;C:\Python27\Scripts;E:\Program Files\Matlab\runtime\win64;E:\Program Files\Matlab\bin;C:\ffmpeg\bin;D:\xampp\php;C:\ProgramData\ComposerSetup\bin;D:\nginx;C:\OpenSSL-Win64\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_191\bin;%ANDROID_HOME%;C:\Users\Admin\AppData\Local\Android\Sdk\platform-tools;C:\Users\Admin\Anaconda3;C:\Users\Admin\Anaconda3\Library\mingw-w64\bin;C:\Users\Admin\Anaconda3\Library\usr\bin;C:\Users\Admin\Anaconda3\Library\bin;C:\Users\Admin\Anaconda3\Scripts;C:\Python27\Scripts;C:\Python27;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\AppData\Roaming\npm;C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Program Files\JetBrains\PhpStorm 2018.2.1\bin;C:\Users\Admin\AppData\Local\now-cli;C:\Program Files\heroku\bin;C:\Program Files\PostgreSQL\10\bin;C:\gsutil;D:\xampp\apache\bin;C:\ffmpeg\bin;C:\Users\Admin\AppData\Roaming\Composer\vendor\bin;D:\nginx;C:\OpenSSL-Win64\bin;D:\netcat
 
 Yarn version: 
   1.13.0
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fdataloader: Not found
+  Error: https://registry.yarnpkg.com/@types%2fapollo-errors: Not found
       at Request.params.callback [as _callback] (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66255:18)
       at Request.self.callback (C:\Users\Admin\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129397:22)
       at emitTwo (events.js:126:13)
@@ -33,6 +33,7 @@ npm manifest:
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
+      "apollo-errors": "^1.9.0",
       "apollo-server-express": "^2.3.1",
       "bcryptjs": "^2.4.3",
       "class-validator": "^0.9.1",
@@ -431,6 +432,14 @@ Lockfile:
       core-js "^3.0.0-beta.3"
       node-fetch "^2.2.0"
   
+  apollo-errors@^1.9.0:
+    version "1.9.0"
+    resolved "https://registry.yarnpkg.com/apollo-errors/-/apollo-errors-1.9.0.tgz#f1ed0ca0a6be5cd2f24e2eaa7b0860a10146ff51"
+    integrity sha512-XVukHd0KLvgY6tNjsPS3/Re3U6RQlTKrTbIpqqeTMo2N34uQMr+H1UheV21o8hOZBAFosvBORVricJiP5vfmrw==
+    dependencies:
+      assert "^1.4.1"
+      extendable-error "^0.1.5"
+  
   apollo-link@^1.2.3:
     version "1.2.6"
     resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.6.tgz#d9b5676d79c01eb4e424b95c7171697f6ad2b8da"
@@ -583,6 +592,13 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
     integrity sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
+  
+  assert@^1.4.1:
+    version "1.4.1"
+    resolved "https://registry.yarnpkg.com/assert/-/assert-1.4.1.tgz#99912d591836b5a6f5b345c0f07eefc08fc65d91"
+    integrity sha1-mZEtWRg2tab1s0XA8H7vwI/GXZE=
+    dependencies:
+      util "0.10.3"
   
   assign-symbols@^1.0.0:
     version "1.0.0"
@@ -1387,6 +1403,11 @@ Lockfile:
       assign-symbols "^1.0.0"
       is-extendable "^1.0.1"
   
+  extendable-error@^0.1.5:
+    version "0.1.5"
+    resolved "https://registry.yarnpkg.com/extendable-error/-/extendable-error-0.1.5.tgz#122308a7097bc89a263b2c4fbf089c78140e3b6d"
+    integrity sha1-EiMIpwl7yJomOyxPvwiceBQOO20=
+  
   extglob@^2.0.4:
     version "2.0.4"
     resolved "https://registry.yarnpkg.com/extglob/-/extglob-2.0.4.tgz#ad00fe4dc612a9232e8718711dc5cb5ab0285543"
@@ -1837,6 +1858,11 @@ Lockfile:
     version "2.0.3"
     resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
     integrity sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
+  
+  inherits@2.0.1:
+    version "2.0.1"
+    resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
+    integrity sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE=
   
   ini@^1.3.4, ini@~1.3.0:
     version "1.3.5"
@@ -3971,6 +3997,13 @@ Lockfile:
     dependencies:
       define-properties "^1.1.2"
       object.getownpropertydescriptors "^2.0.3"
+  
+  util@0.10.3:
+    version "0.10.3"
+    resolved "https://registry.yarnpkg.com/util/-/util-0.10.3.tgz#7afb1afe50805246489e3db7fe0ed379336ac0f9"
+    integrity sha1-evsa/lCAUkZInj23/g7TeTNqwPk=
+    dependencies:
+      inherits "2.0.1"
   
   utils-merge@1.0.1:
     version "1.0.1"
