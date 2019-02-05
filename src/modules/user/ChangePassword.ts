@@ -1,9 +1,9 @@
-import { Resolver, Mutation, Arg } from "type-graphql";
-import { redis } from "../../redis";
 import bcrypt from "bcryptjs";
+import { Arg, Mutation, Resolver } from "type-graphql";
 import { User } from "../../entity/User";
-import { FORGOT_PASSWORD as type } from "./constants/UserAction";
+import { redis } from "../../redis";
 import { ChangePasswordInput } from "./changePassword/changePasswordInput";
+import { FORGOT_PASSWORD as type } from "./constants/UserAction";
 
 @Resolver()
 export class ChangePasswordResolver {
@@ -27,5 +27,15 @@ export class ChangePasswordResolver {
 
     await user.save();
     return user;
+  }
+  @Mutation(() => Boolean)
+  async validateToken(@Arg("token") token: string): Promise<Boolean> {
+    const userId = await redis.get(type + token);
+
+    if (!userId) {
+      return false;
+    }
+
+    return true;
   }
 }
