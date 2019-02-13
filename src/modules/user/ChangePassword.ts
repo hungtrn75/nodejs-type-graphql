@@ -26,6 +26,7 @@ export class ChangePasswordResolver {
     user.password = await bcrypt.hash(password, 12);
 
     await user.save();
+    await redis.del(type + token);
     return user;
   }
   @Mutation(() => Boolean)

@@ -1,6 +1,6 @@
-import { Resolver, Mutation, Arg } from "type-graphql";
-import { redis } from "../../redis";
+import { Arg, Mutation, Resolver } from "type-graphql";
 import { User } from "../../entity/User";
+import { redis } from "../../redis";
 import { CONFIRM_EMAIL as type } from "./constants/UserAction";
 
 @Resolver()
@@ -14,7 +14,7 @@ export class ConfirmUserResolver {
     }
 
     await User.update({ id: parseInt(userId, 10) }, { confirmed: true });
-    await redis.del(token);
+    await redis.del(type + token);
 
     return true;
   }
